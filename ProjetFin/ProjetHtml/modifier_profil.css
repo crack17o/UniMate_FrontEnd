@@ -1,0 +1,170 @@
+/* ProjetHtml/modifier_profil.css */
+
+/* --- Styles de base --- */
+body {
+    font-family: 'Segoe UI', sans-serif; /* Utiliser la même police que dans styles.css */
+    background: var(--background); /* Couleur de fond définie dans styles.css */
+    color: var(--text-color); /* Couleur du texte définie dans styles.css */
+    display: flex;
+    transition: all 0.3s ease;
+}
+
+/* --- Styles du conteneur principal --- */
+.container {
+    max-width: 800px; /* Largeur maximale du contenu */
+    margin: 0 auto; /* Centrer le contenu */
+    padding: 20px; /* Ajout d'un padding pour un espacement intérieur */
+    background-color: var(--card-bg); /* Couleur de fond pour correspondre aux autres pages */
+    border-radius: 8px; /* Coins arrondis pour un aspect plus doux */
+    box-shadow: var(--shadow); /* Ombre pour donner de la profondeur */
+    margin-top: 40px; /* Espacement supérieur pour éviter le chevauchement */
+}
+
+/* --- Styles des boutons --- */
+.btn {
+    padding: 8px 15px; /* Réduire le padding pour un bouton plus petit */
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary-blue); /* Couleur du bouton */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Animation au survol */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Couleur au survol du bouton */
+    transform: scale(1.05); /* Effet de zoom au survol */
+}
+
+/* --- Styles pour les formulaires --- */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input, form select {
+    margin-bottom: 15px; /* Espacement entre les champs */
+    padding: 12px; /* Espacement intérieur */
+    border: none; /* Retirer les bordures */
+    border-radius: 4px; /* Coins arrondis */
+    box-sizing: border-box; /* Inclure la bordure et le padding dans la largeur totale */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transition pour la couleur de fond et l'animation */
+    background-color: var(--background);
+    color: var(--text-color);
+}
+
+form input:focus {
+    background-color: var(--background); /* Couleur de fond au focus */
+    color: var(--text-color);
+    outline: none; /* Supprimer le contour par défaut */
+    transform: scale(1.02); /* Effet de zoom au focus */
+}
+
+/* --- Styles pour les messages d'erreur --- */
+.error-message {
+    color: #c82333; /* Couleur des messages d'erreur */
+    margin-bottom: 15px;
+}
+
+h1, h2 {
+    color: #333; /* Couleur du texte des titres */
+    margin-bottom: 20px;
+    text-align: center; /* Centrer les titres */
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Espacement entre les éléments */
+    margin-bottom: 30px; /* Espacement inférieur */
+}
+
+.profile-pic-container {
+    position: relative;
+    margin-right: 20px;
+}
+
+.profile-pic {
+    width: 120px; /* Augmenter la taille de la photo */
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #007bff; /* Bordure de la photo de profil */
+    transition: transform 0.3s ease; /* Animation de transformation */
+}
+
+.profile-pic:hover {
+    transform: scale(1.05); /* Effet de zoom au survol */
+}
+
+.form-group {
+    margin-bottom: 20px; /* Espacement inférieur */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold; /* Mettre le texte en gras */
+}
+
+input[type="email"],
+input[type="tel"],
+input[type="text"],
+input[type="file"] {
+    width: 100%;
+    padding: 12px; /* Espacement intérieur */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Inclure la bordure et le padding dans la largeur totale */
+    transition: border-color 0.3s ease; /* Transition pour la couleur de la bordure */
+}
+
+input[type="password"] {
+    width: 80%;
+    padding: 12px; /* Espacement intérieur */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Inclure la bordure et le padding dans la largeur totale */
+    transition: border-color 0.3s ease; /* Transition pour la couleur de la bordure */
+}
+
+input[type="file"] {
+    padding: 5px; /* Ajustement du padding pour le champ de fichier */
+}
+
+input:focus {
+    border-color: #007bff; /* Couleur de la bordure au focus */
+    outline: none; /* Supprimer le contour par défaut */
+}
+
+
+#removePicBtn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #dc3545; /* Couleur du bouton supprimer */
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transition pour l'effet de survol */
+}
+
+#removePicBtn:hover {
+    background-color: #c82333; /* Couleur au survol du bouton supprimer */
+}
+
+/* Styles pour les icônes */
+.icon {
+    margin-right: 8px; /* Espacement entre l'icône et le texte */
+    font-size: 18px; /* Taille des icônes */
+    color: #007bff; /* Couleur des icônes */
+}
+
+/* --- Styles pour les actions de formulaire --- */
+.form-actions {
+    display: flex;
+    justify-content: space-between; /* Espacement entre les boutons */
+    margin-top: 20px; /* Espacement supérieur pour les boutons */
+}

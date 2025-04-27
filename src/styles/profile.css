@@ -1,0 +1,342 @@
+.profile-container {
+  padding: 2rem;
+  width: 85%; /* Changed from max-width to width */
+  margin: 0 auto;
+}
+
+.profile-header {
+  margin-bottom: 2rem;
+}
+
+.profile-header h1 {
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.profile-card {
+  width: 100%;
+  min-height: calc(100vh - 8rem); /* Make it take most of the viewport height */
+  display: flex;
+  flex-direction: column;
+  background: var(--background-card);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.profile-avatar {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  padding: 3rem 2rem;
+  text-align: center;
+  color: white;
+}
+
+.profile-avatar i {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.profile-avatar h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.avatar-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-container i {
+  font-size: 3rem;
+}
+
+.change-picture-btn {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 32px;
+  height: 32px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem; /* Réduire légèrement la taille de l'icône */
+  border: 2px solid var(--background-card); /* Ajouter une bordure pour le contraste */
+}
+
+.change-picture-btn:hover {
+  background: var(--secondary-color);
+  transform: scale(1.1);
+}
+
+.profile-info {
+  padding: 3rem;
+  flex: 1;
+}
+
+.info-group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Force 2 columns */
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+  padding: 0 1rem;
+}
+
+.info-item {
+  padding: 1.5rem;
+  background: var(--background-light);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  min-height: 120px; /* Give more height to items */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.info-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.info-label i {
+  color: var(--primary-color);
+}
+
+.info-value {
+  color: var(--text-primary);
+  font-size: 1.2rem; /* Bigger text */
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.info-value-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.edit-btn {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.25rem;
+  transition: all 0.2s ease;
+}
+
+.edit-btn:hover {
+  color: var(--primary-color);
+}
+
+.email-edit-form {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.email-edit-form input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--background-light);
+  color: var(--text-primary);
+}
+
+.email-edit-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.save-btn,
+.cancel-btn {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.save-btn {
+  background: var(--primary-color);
+  color: white;
+}
+
+.cancel-btn {
+  background: var(--border-color);
+  color: var(--text-primary);
+}
+
+.save-btn:hover,
+.cancel-btn:hover {
+  transform: translateY(-2px);
+}
+
+.change-password-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.change-password-btn:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+/* Modal de changement de mot de passe */
+.password-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  position: relative;
+  background: var(--background-card);
+  padding: 2rem;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 400px;
+  z-index: 1001;
+}
+
+.close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.modal-content h3 {
+  margin: 0 0 1.5rem 0;
+  color: var(--text-primary);
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.form-group input {
+  color: var(--text-primary);
+  background: var(--background-light);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  padding: 0.75rem;
+  width: 100%;
+}
+
+.submit-btn {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 1rem;
+  width: 100%;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.submit-btn:hover {
+  background: var(--secondary-color);
+}
+
+.profile-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem 2rem 2rem;
+}
+
+@media (max-width: 1500px) {
+  .profile-container {
+    max-width: 95%;
+  }
+}
+
+@media (max-width: 1300px) {
+  .profile-container {
+    max-width: 95%;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-container {
+    padding: 1rem;
+  }
+
+  .profile-avatar {
+    padding: 2rem 1rem;
+  }
+
+  .profile-info {
+    padding: 1.5rem;
+  }
+
+  .info-group {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-avatar i {
+    font-size: 3rem;
+  }
+
+  .profile-avatar h2 {
+    font-size: 1.25rem;
+  }
+
+  .info-value {
+    font-size: 1rem;
+  }
+
+  .change-password-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

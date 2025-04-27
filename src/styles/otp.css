@@ -1,0 +1,182 @@
+.otp-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: var(--background-light);
+}
+
+.otp-card {
+  background: var(--background-card);
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.otp-card h2 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  font-size: 1.75rem;
+}
+
+.otp-card p {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.otp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.otp-inputs {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.otp-inputs input {
+  width: 50px;
+  height: 60px;
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: var(--background-light);
+  transition: all 0.3s ease;
+}
+
+.otp-inputs input.error {
+  border-color: #ff4444;
+  animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+  background-color: rgba(255, 68, 68, 0.1);
+}
+
+.otp-inputs input.success {
+  border-color: #00C851;
+  background-color: rgba(0, 200, 81, 0.1);
+  animation: pulse 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  10%, 90% { transform: translate3d(-1px, 0, 0); }
+  20%, 80% { transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-2px, 0, 0); }
+  40%, 60% { transform: translate3d(2px, 0, 0); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.verify-btn {
+  padding: 1rem;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.verify-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.verify-btn:not(:disabled):hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.otp-footer {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.resend-btn {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.resend-btn:hover {
+  color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.resend-btn i {
+  font-size: 1rem;
+}
+
+@media (max-width: 480px) {
+  .otp-card {
+    padding: 1.5rem;
+  }
+
+  .otp-inputs {
+    gap: 0.5rem;
+  }
+
+  .otp-inputs input {
+    width: 40px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+}
+
+/* Style pour le toast d'envoi d'email */
+.sending-email-toast {
+  min-width: 300px;
+}
+
+.progress-bar {
+  margin-top: 10px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-bar .progress {
+  height: 100%;
+  width: 0;
+  background: white;
+  animation: progress 2s linear forwards;
+}
+
+@keyframes progress {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+/* Style pour éviter les doublons de toast */
+.Toastify__toast-container {
+  width: auto !important;
+  min-width: 300px;
+}
+
+.sending-email-toast {
+  min-width: 300px;
+}

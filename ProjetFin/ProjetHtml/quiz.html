@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - UniDash</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="quiz.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="light-theme">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <i class="fas fa-graduation-cap"></i>
+            <span>UniMate</span>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <i class="fas fa-home"></i>
+                        <span>Mon Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="budget.html">
+                        <i class="fas fa-wallet"></i>
+                        <span>Gérer mon budget</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="planning.html">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Mon planning</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="alerts.html">
+                        <i class="fas fa-bell"></i>
+                        <span>Mes alertes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="communications.html">
+                        <i class="fas fa-bullhorn"></i>
+                        <span>Communications</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="library.html">
+                        <i class="fas fa-book"></i>
+                        <span>Ma bibliothèque</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="quiz.html">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Passer un quizz</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="chatbot.html">
+                        <i class="fas fa-robot"></i>
+                        <span>Mon Assistant</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="user-info">
+                <div class="profile-trigger">
+                    <img src="https://via.placeholder.com/40" alt="Joël Stone" class="profile-pic">
+                    <div class="user-details">
+                        <h3>Joël Stone</h3>
+                        <p>Faculté des Sciences - Informatique | L3 | 
+                            <span class="matricule">19T2341</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="profile-dropdown">
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-user"></i>
+                        <span>Modifier mon profil</span>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Se déconnecter</span>
+                    </a>
+                </div>
+            </div>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </div>
+        </nav>
+
+        <!-- Quiz Content -->
+        <div class="quiz-container">
+            <!-- Grille des cours -->
+            <div class="courses-grid" id="coursesGrid">
+                <h2>Sélectionnez un cours</h2>
+                <div class="grid">
+                    <div class="course-card" data-course="algo">
+                        <i class="fas fa-code"></i>
+                        <h3>Algorithmique</h3>
+                        <span class="chapter-count">6 chapitres</span>
+                    </div>
+                    <div class="course-card" data-course="ia">
+                        <i class="fas fa-brain"></i>
+                        <h3>Introduction à l'IA</h3>
+                        <span class="chapter-count">4 chapitres</span>
+                    </div>
+                    <div class="course-card" data-course="bdd">
+                        <i class="fas fa-database"></i>
+                        <h3>Administration des BDD</h3>
+                        <span class="chapter-count">5 chapitres</span>
+                    </div>
+                    <div class="course-card" data-course="reseaux">
+                        <i class="fas fa-network-wired"></i>
+                        <h3>Réseaux</h3>
+                        <span class="chapter-count">7 chapitres</span>
+                    </div>
+                    <div class="course-card" data-course="securite">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Sécurité Informatique</h3>
+                        <span class="chapter-count">5 chapitres</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Liste des chapitres (initialement cachée) -->
+            <div class="chapters-list hidden" id="chaptersList">
+                <button class="back-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    Retour aux cours
+                </button>
+                <h2>Chapitres disponibles</h2>
+                <div class="chapters-grid">
+                    <!-- Les chapitres seront injectés ici dynamiquement -->
+                </div>
+            </div>
+
+            <!-- Quiz (initialement caché) -->
+            <div class="quiz-section hidden" id="quizSection">
+                <div class="quiz-header">
+                    <button class="back-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        Retour aux chapitres
+                    </button>
+                    <div class="quiz-info">
+                        <h2 id="quizTitle">Titre du chapitre</h2>
+                        <div class="score">
+                            Score: <span id="currentScore">0</span>/<span id="totalQuestions">0</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question-container">
+                    <h3 id="questionText">Question?</h3>
+                    <div class="options-container" id="optionsContainer">
+                        <!-- Les options seront injectées ici -->
+                    </div>
+                </div>
+
+                <div class="feedback-container hidden" id="feedbackContainer">
+                    <div class="feedback-content">
+                        <i class="fas"></i>
+                        <p id="explanationText"></p>
+                        <button class="next-btn">Question suivante</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="quiz.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

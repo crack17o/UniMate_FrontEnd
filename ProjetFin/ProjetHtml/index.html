@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Étudiant</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="light-theme">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <i class="fas fa-graduation-cap"></i>
+            <span>UniMate</span>
+        </div>
+        <nav>
+            <ul>
+                <li class="active">
+                    <a href="index.html">
+                        <i class="fas fa-home"></i>
+                        <span>Mon Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="budget.html">
+                        <i class="fas fa-wallet"></i>
+                        <span>Gérer mon budget</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="planning.html">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Mon planning</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="alerts.html">
+                        <i class="fas fa-bell"></i>
+                        <span>Mes alertes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="communications.html">
+                        <i class="fas fa-bullhorn"></i>
+                        <span>Communications</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="library.html">
+                        <i class="fas fa-book"></i>
+                        <span>Ma bibliothèque</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="quiz.html">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Passer un quizz</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="chatbot.html">
+                        <i class="fas fa-robot"></i>
+                        <span>Mon Assistant</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="user-info">
+                <div class="profile-trigger">
+                    <img src="https://via.placeholder.com/40" alt="Joël Stone" class="profile-pic">
+                    <div class="user-details">
+                        <h3>Joël Stone</h3>
+                        <p>Faculté des Sciences - Informatique | L3 | 
+                            <span class="matricule">19T2341</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="profile-dropdown">
+                    <a href="modifier_profil.html" class="dropdown-item">
+                        <i class="fas fa-user"></i>
+                        <span>Modifier mon profil</span>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Se déconnecter</span>
+                    </a>
+                </div>
+            </div>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </div>
+        </nav>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard">
+            <!-- Colonne gauche -->
+            <div class="dashboard-column">
+                <!-- Cours du jour -->
+                <section class="today-classes card">
+                    <div class="section-header">
+                        <i class="fas fa-chalkboard-teacher section-icon"></i>
+                        <h2>Cours du jour</h2>
+                    </div>
+                    <div class="class-list">
+                        <div class="class-item">
+                            <h3>Programmation Web</h3>
+                            <p>08:00 - 10:00</p>
+                            <p class="status confirmed">Cours confirmé</p>
+                        </div>
+                        <div class="class-item">
+                            <h3>Base de données</h3>
+                            <p>14:00 - 16:00</p>
+                            <p class="status pending">En attente</p>
+                        </div>
+                        <div class="class-item">
+                            <h3>Algorithmes</h3>
+                            <p>16:00 - 18:00</p>
+                            <p class="status cancelled">Séance levée</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Citation du jour -->
+                <section class="quote card">
+                    <div class="section-header">
+                        <i class="fas fa-quote-right section-icon"></i>
+                        <h2>Citation du jour</h2>
+                    </div>
+                    <blockquote>
+                        "Le succès, c'est tomber sept fois et se relever huit." - Proverbe japonais
+                    </blockquote>
+                </section>
+            </div>
+
+            <!-- Colonne centrale -->
+            <div class="dashboard-column">
+                <!-- Budget -->
+                <section class="budget card">
+                    <div class="section-header">
+                        <i class="fas fa-wallet section-icon"></i>
+                        <h2>Budget mensuel</h2>
+                    </div>
+                    <div class="budget-container">
+                        <div class="chart-container">
+                            <canvas id="budgetChart"></canvas>
+                        </div>
+                        <div class="budget-legend">
+                            <div class="legend-item">
+                                <span class="legend-color" style="background: #FF6384"></span>
+                                <span class="legend-label">Transport: 25%</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color" style="background: #36A2EB"></span>
+                                <span class="legend-label">Nourriture: 40%</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color" style="background: #FFCE56"></span>
+                                <span class="legend-label">Supports cours: 20%</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color" style="background: #4BC0C0"></span>
+                                <span class="legend-label">Divers: 15%</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Dates importantes -->
+                <section class="important-dates card">
+                    <div class="section-header">
+                        <i class="fas fa-calendar-alt section-icon"></i>
+                        <h2>Dates importantes</h2>
+                    </div>
+                    <div class="slider-container">
+                        <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+                        <div class="slider-content">
+                            <!-- Le contenu sera injecté dynamiquement -->
+                        </div>
+                        <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+                        <div class="slider-dots"></div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Colonne droite -->
+            <div class="dashboard-column">
+                <!-- Communications -->
+                <section class="communications card">
+                    <div class="section-header">
+                        <i class="fas fa-bullhorn section-icon"></i>
+                        <h2>Communications</h2>
+                    </div>
+                    <div class="slider-container">
+                        <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+                        <div class="slider-content">
+                            <!-- Le contenu sera injecté dynamiquement -->
+                        </div>
+                        <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+                        <div class="slider-dots"></div>
+                    </div>
+                </section>
+
+                <!-- Alertes Interro -->
+                <section class="exam-alerts card">
+                    <div class="section-header">
+                        <i class="fas fa-exclamation-circle section-icon"></i>
+                        <h2>Alertes Interro</h2>
+                    </div>
+                    <div class="slider-container">
+                        <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+                        <div class="slider-content">
+                            <!-- Le contenu sera injecté dynamiquement -->
+                        </div>
+                        <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+                        <div class="slider-dots"></div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

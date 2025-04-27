@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vérification OTP - UniMate</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Assurez-vous que le chemin est correct -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Importer la police Roboto -->
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif; /* Utiliser la police Roboto */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #e9eff1; /* Couleur de fond bleue */
+        }
+        .otp-container {
+            background-color: white; /* Couleur blanche pour le conteneur */
+            border-radius: 8px; /* Coins arrondis */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Ombre douce */
+            padding: 40px;
+            width: 400px; /* Largeur fixe */
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px; /* Taille du titre */
+            margin-bottom: 20px;
+            color: #1877f2; /* Couleur du texte */
+        }
+        .otp-input {
+            width: 50px;
+            height: 50px;
+            font-size: 24px;
+            text-align: center;
+            margin: 0 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px; /* Arrondir les champs de saisie */
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff8c00; /* Couleur orange pour le bouton */
+            color: white;
+            font-size: 16px; /* Taille de police pour le bouton */
+            cursor: pointer;
+            transition: background-color 0.3s; /* Animation au survol */
+            margin-top: 20px; /* Espacement au-dessus du bouton */
+        }
+        .btn:hover {
+            background-color: #e07b00; /* Couleur du bouton au survol */
+        }
+        .resend-btn {
+            margin-top: 10px; /* Espacement au-dessus du bouton de renvoi */
+            color: #1877f2; /* Couleur bleue pour le lien */
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .resend-btn.disabled {
+            color: gray; /* Couleur grise si désactivé */
+            pointer-events: none; /* Désactiver les clics */
+        }
+    </style>
+</head>
+<body>
+    <div class="otp-container">
+        <h1>Vérification OTP</h1>
+        <div>
+            <input type="text" class="otp-input" maxlength="1" oninput="moveToNext(this)">
+            <input type="text" class="otp-input" maxlength="1" oninput="moveToNext(this)">
+            <input type="text" class="otp-input" maxlength="1" oninput="moveToNext(this)">
+            <input type="text" class="otp-input" maxlength="1" oninput="moveToNext(this)">
+            <input type="text" class="otp-input" maxlength="1" oninput="moveToNext(this)">
+        </div>
+        <button class="btn" id="verifyBtn">Vérifier le code</button>
+        <div>
+            <span class="resend-btn" id="resendCode">Renvoyer le code</span>
+        </div>
+    </div>
+
+    <script>
+        function moveToNext(current) {
+            if (current.value.length >= current.maxLength) {
+                const next = current.nextElementSibling;
+                if (next) {
+                    next.focus();
+                }
+            }
+        }
+
+        let resendTimeout;
+        document.getElementById('resendCode').addEventListener('click', function() {
+            if (!this.classList.contains('disabled')) {
+                alert('Un nouveau code a été envoyé.'); // Remplacez ceci par votre logique d'envoi
+                this.classList.add('disabled');
+                this.textContent = 'Code renvoyé !';
+                setTimeout(() => {
+                    this.classList.remove('disabled');
+                    this.textContent = 'Renvoyer le code';
+                }, 30000); // Désactiver pendant 30 secondes
+            }
+        });
+
+        document.getElementById('verifyBtn').addEventListener('click', function() {
+            // Logique de vérification du code OTP (à remplacer par votre logique réelle)
+            alert('Code vérifié avec succès !'); // Remplacez ceci par votre logique de vérification
+            // Rediriger vers la page de réinitialisation du mot de passe
+            window.location.href = 'reset_password_confirm.html'; // Remplacez par la page de destination
+        });
+    </script>
+</body>
+</html> 

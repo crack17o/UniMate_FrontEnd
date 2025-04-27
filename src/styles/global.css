@@ -1,0 +1,181 @@
+/* Variables globales */
+:root {
+  --primary-color: #1976d2;
+  --secondary-color: #ff9800;
+  --background-light: #f5f5f5;
+  --background-card: #ffffff;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --sidebar-width: 250px;
+  --navbar-height: 70px;
+  --transition-speed: 0.3s;
+  --card-height: 400px;
+}
+
+/* Thème sombre */
+.dark-theme {
+  --background-light: #1a1a1a;
+  --background-card: #2d2d2d;
+  --text-primary: #ffffff;
+  --text-secondary: #b3b3b3;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Reset et styles de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--background-light);
+  color: var(--text-primary);
+  transition: background-color var(--transition-speed),
+  color var(--transition-speed);
+  width: 100%;
+}
+
+
+/* Layout principal */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  padding: 20px;
+  padding-top: calc(var(--navbar-height) + 20px);
+}
+
+/* Dashboard Grid */
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, var(--card-height));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.dashboard > * {
+  min-width: 0;
+  width: 100%;
+}
+
+/* Cartes */
+.card {
+  background: var(--background-card);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.2s,
+              box-shadow 0.2s,
+              background-color var(--transition-speed),
+              border-color var(--transition-speed);
+  height: var(--card-height);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.section-icon {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-right: 10px;
+  transition: color var(--transition-speed);
+}
+
+h2, h3, p, span, a {
+  transition: color var(--transition-speed);
+}
+
+/* Contenu scrollable */
+.scrollable-content {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 10px;
+  margin-right: -10px;
+}
+
+/* Scrollbar personnalisée */
+.scrollable-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollable-content::-webkit-scrollbar-track {
+  background: var(--border-color);
+  border-radius: 3px;
+  transition: background-color var(--transition-speed);
+}
+
+.scrollable-content::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 3px;
+  transition: background-color var(--transition-speed);
+}
+
+.scrollable-content::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color);
+}
+
+/* Status des cours */
+.status {
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color var(--transition-speed),
+              color var(--transition-speed);
+}
+
+.status.confirmed {
+  background-color: #4caf50;
+  color: white;
+}
+
+.status.pending {
+  background-color: #ff9800;
+  color: white;
+}
+
+.status.cancelled {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: fadeIn 0.5s ease-out;
+}

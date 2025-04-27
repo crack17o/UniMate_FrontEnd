@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibliothèque - UniDash</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="library.css">
+</head>
+<body class="light-theme">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <i class="fas fa-graduation-cap"></i>
+            <span>UniMate</span>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <i class="fas fa-home"></i>
+                        <span>Mon Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="budget.html">
+                        <i class="fas fa-wallet"></i>
+                        <span>Gérer mon budget</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="planning.html">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Mon planning</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="alerts.html">
+                        <i class="fas fa-bell"></i>
+                        <span>Mes alertes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="communications.html">
+                        <i class="fas fa-bullhorn"></i>
+                        <span>Communications</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="library.html">
+                        <i class="fas fa-book"></i>
+                        <span>Ma bibliothèque</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="quiz.html">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Passer un quizz</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="chatbot.html">
+                        <i class="fas fa-robot"></i>
+                        <span>Mon Assistant</span>
+                    </a>
+                </li>
+            </ul>
+    </nav>
+</aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="user-info">
+                <div class="profile-trigger">
+                    <img src="https://via.placeholder.com/40" alt="Joël Stone" class="profile-pic">
+                    <div class="user-details">
+                        <h3>Joël Stone</h3>
+                        <p>Faculté des Sciences - Informatique | L3 | 
+                            <span class="matricule">19T2341</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="profile-dropdown">
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-user"></i>
+                        <span>Modifier mon profil</span>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Se déconnecter</span>
+                    </a>
+                </div>
+            </div>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </div>
+        </nav>
+
+        <!-- Library Content -->
+        <div class="library-container">
+            <div class="library-header">
+                <h1>Bibliothèque Numérique</h1>
+                <div class="search-filter-container">
+                    <div class="search-bar">
+                        <input type="text" id="searchInput" placeholder="Rechercher un livre...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <button class="filter-btn" id="filterBtn">
+                        <i class="fas fa-filter"></i>
+                        Filtrer
+                    </button>
+                </div>
+            </div>
+
+            <!-- Grid des livres -->
+            <div class="books-grid" id="booksGrid">
+                <!-- Les livres seront générés en JavaScript -->
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination-container">
+                <!-- La pagination sera générée en JavaScript -->
+            </div>
+        </div>
+
+        <!-- Modal de filtres -->
+        <div class="filter-modal" id="filterModal">
+            <div class="modal-overlay"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Filtrer les résultats</h3>
+                    <button class="close-modal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="filter-section">
+                        <label for="facultySelect">Faculté</label>
+                        <select id="facultySelect">
+                            <option value="all">Toutes les facultés</option>
+                            <!-- Options générées en JS -->
+                        </select>
+                    </div>
+                    <div class="filter-section">
+                        <label for="departmentSelect">Département</label>
+                        <select id="departmentSelect" disabled>
+                            <option value="all">Tous les départements</option>
+                            <!-- Options générées en JS -->
+                        </select>
+                    </div>
+                    <div class="filter-actions">
+                        <button class="reset-filters">Réinitialiser</button>
+                        <button class="apply-filters">Appliquer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="library.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

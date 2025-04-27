@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - UniMate</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Assurez-vous que le chemin est correct -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"> <!-- Icônes Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Importer la police Roboto -->
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif; /* Utiliser la police Roboto */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: vas y; /* Couleur de fond bleue */
+        }
+        .login-container {
+            background-color: white; /* Couleur blanche pour le conteneur */
+            border-radius: 8px; /* Coins arrondis */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Ombre douce */
+            padding: 40px;
+            width: 400px; /* Largeur fixe */
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .logo img {
+            width: 100px; /* Largeur du logo */
+        }
+        h1 {
+            font-size: 24px; /* Taille du titre */
+            text-align: center;
+            margin-bottom: 20px;
+            color: #1877f2; /* Couleur du texte */
+        }
+        .form-group {
+            margin-bottom: 15px; /* Espacement entre les groupes de formulaire */
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #1877f2; /* Couleur du texte des labels */
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px; /* Arrondir les champs de saisie */
+            font-size: 16px; /* Taille de police pour les champs */
+        }
+        .form-group input:focus {
+            border-color: #ff8c00; /* Couleur orange au focus */
+            outline: none;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff8c00; /* Couleur orange pour le bouton */
+            color: white;
+            font-size: 16px; /* Taille de police pour le bouton */
+            cursor: pointer;
+            transition: background-color 0.3s; /* Animation au survol */
+        }
+        .btn:hover {
+            background-color: #e07b00; /* Couleur du bouton au survol */
+        }
+        .forgot-password {
+            text-align: center;
+            margin-top: 10px; /* Espacement au-dessus du lien de mot de passe oublié */
+        }
+        .forgot-password a {
+            color: #1877f2; /* Couleur bleue pour le lien */
+            text-decoration: none;
+        }
+        .forgot-password a:hover {
+            text-decoration: underline; /* Souligner au survol */
+        }
+        .password-container {
+            position: relative; /* Position relative pour le conteneur du mot de passe */
+        }
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #1877f2; /* Couleur de l'icône */
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">
+            <i class="fas fa-graduation-cap"></i>
+            <span>UniMate</span> <!-- Remplacez par le chemin de votre logo -->
+        </div>
+        <h1>Connexion</h1>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email"><i class="fas fa-envelope"></i> Email ou numéro de téléphone :</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group password-container">
+                <label for="password"><i class="fas fa-lock"></i> Mot de passe :</label>
+                <input type="password" id="password" name="password" required>
+                <button type="button" class="toggle-password" id="togglePassword">
+                    <i class="fas fa-eye" id="eyeIcon"></i>
+                </button>
+            </div>
+            <button type="submit" class="btn">Se connecter</button>
+            <div class="forgot-password">
+                <a href="rest_password.html">Mot de passe oublié ?</a>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script> <!-- Assurez-vous que le chemin est correct -->
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Empêche le rechargement de la page
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Logique de connexion (à remplacer par votre logique réelle)
+            if (email && password) {
+                alert('Connexion réussie !'); // Remplacez ceci par votre logique de connexion
+                // Rediriger vers la page d'accueil ou tableau de bord
+                window.location.href = 'index.html'; // Remplacez par la page de destination
+            } else {
+                alert('Veuillez remplir tous les champs.');
+            }
+        });
+
+        // Fonction pour afficher/masquer le mot de passe
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+        const eyeIcon = document.getElementById('eyeIcon');
+
+        togglePassword.addEventListener('click', function() {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            eyeIcon.classList.toggle('fa-eye');
+            eyeIcon.classList.toggle('fa-eye-slash');
+        });
+    </script>
+</body>
+</html> 

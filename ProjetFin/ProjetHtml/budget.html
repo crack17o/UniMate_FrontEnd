@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion Budget - UniDash</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="budget.css">
+</head>
+<body class="light-theme">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <i class="fas fa-graduation-cap"></i>
+            <span>UniMate</span>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <i class="fas fa-home"></i>
+                        <span>Mon Dashboard</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="budget.html">
+                        <i class="fas fa-wallet"></i>
+                        <span>Gérer mon budget</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="planning.html">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Mon planning</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="alerts.html">
+                        <i class="fas fa-bell"></i>
+                        <span>Mes alertes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="communications.html">
+                        <i class="fas fa-bullhorn"></i>
+                        <span>Communications</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="library.html">
+                        <i class="fas fa-book"></i>
+                        <span>Ma bibliothèque</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="quiz.html">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Passer un quizz</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="chatbot.html">
+                        <i class="fas fa-robot"></i>
+                        <span>Mon Assistant</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="user-info">
+                <div class="profile-trigger">
+                    <img src="https://via.placeholder.com/40" alt="Joël Stone" class="profile-pic">
+                    <div class="user-details">
+                        <h3>Joël Stone</h3>
+                        <p>Faculté des Sciences - Informatique | L3 | 
+                            <span class="matricule">19T2341</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="profile-dropdown">
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-user"></i>
+                        <span>Modifier mon profil</span>
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Se déconnecter</span>
+                    </a>
+                </div>
+            </div>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </div>
+        </nav>
+
+        <!-- Budget Content -->
+        <div class="budget-container">
+            <!-- Rangée supérieure -->
+            <div class="top-row">
+                <!-- Carte de crédit virtuelle -->
+                <div class="dashboard-card balance-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-wallet"></i> Solde actuel</h3>
+                    </div>
+                    <div class="balance-content">
+                        <div class="balance-amount" id="currentBalance">0 CDF</div>
+                        <div class="balance-actions">
+                            <button class="action-btn income-btn" id="incomeButton">
+                                <i class="fas fa-plus-circle"></i>
+                                Nouveau revenu
+                            </button>
+                            <button class="action-btn expense-btn" id="expenseButton">
+                                <i class="fas fa-minus-circle"></i>
+                                Nouvelle dépense
+                            </button>
+                            <button class="action-btn convert-btn" id="convertButton">
+                                <i class="fas fa-exchange-alt"></i>
+                                Conversion
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contrôles de devise et seuil -->
+                <div class="dashboard-card controls-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-cog"></i> Paramètres</h3>
+                    </div>
+                    <div class="controls-content">
+                        <div class="currency-selector">
+                            <label>Devise</label>
+                            <select id="currencySelect">
+                                <option value="cdf">Franc Congolais (CDF)</option>
+                                <option value="usd">Dollar US (USD)</option>
+                            </select>
+                        </div>
+                        <div class="spending-limit">
+                            <label>Seuil hebdomadaire</label>
+                            <div class="limit-input">
+                                <input type="number" id="weeklyLimit" placeholder="Définir un seuil">
+                                <button class="set-limit-btn" id="setLimitBtn">
+                                    <i class="fas fa-check"></i>
+                                    Définir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Avertissement de seuil -->
+                <div class="dashboard-card warning-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-exclamation-circle"></i> Alertes</h3>
+                    </div>
+                    <div class="threshold-warning" id="thresholdWarning">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <span>Suivi du seuil hebdomadaire</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rangée inférieure -->
+            <div class="bottom-row">
+
+                <!-- Évolution -->
+                <div class="dashboard-card evolution">
+                    <div class="card-header">
+                        <h3><i class="fas fa-chart-line"></i> Évolution</h3>
+                        <div class="card-filters">
+                            <select class="period-filter">
+                                <option value="week">Cette semaine</option>
+                                <option value="month">Ce mois</option>
+                                <option value="year">Cette année</option>
+                            </select>
+                            <select class="type-filter">
+                                <option value="all">Tout</option>
+                                <option value="income">Revenus</option>
+                                <option value="expense">Dépenses</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="evolutionChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Historique -->
+                <div class="dashboard-card history">
+                    <div class="card-header">
+                        <h3><i class="fas fa-history"></i> Historique récent</h3>
+                        <div class="card-filters">
+                            <select class="period-filter">
+                                <option value="week">Cette semaine</option>
+                                <option value="month">Ce mois</option>
+                                <option value="year">Cette année</option>
+                            </select>
+                            <select class="type-filter">
+                                <option value="all">Tout</option>
+                                <option value="income">Revenus</option>
+                                <option value="expense">Dépenses</option>
+                            </select>
+                            <select class="category-filter">
+                                <option value="all">Toutes catégories</option>
+                                <option value="transport">Transport</option>
+                                <option value="food">Alimentation</option>
+                                <option value="housing">Logement</option>
+                                <option value="leisure">Loisirs</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="transactions-list" id="transactionsList">
+                        <!-- Les transactions seront injectées ici -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modales -->
+    <!-- Modale Opération -->
+    <div class="modal" id="operationModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Nouvelle opération</h2>
+                <button class="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="operationForm" onsubmit="handleOperation(event)">
+                <div class="form-group">
+                    <label>Montant</label>
+                    <input type="number" name="amount" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label>Intitulé</label>
+                    <input type="text" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label>Catégorie</label>
+                    <select name="category" required>
+                        <option value="">Sélectionner une catégorie</option>
+                        <option value="transport">Transport</option>
+                        <option value="food">Alimentation</option>
+                        <option value="housing">Logement</option>
+                        <option value="leisure">Loisirs</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn">Annuler</button>
+                    <button type="submit" class="submit-btn">Enregistrer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modale Conversion -->
+    <div class="modal" id="convertModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Conversion de devise</h2>
+                <button class="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="convertForm" onsubmit="handleConversion(event)">
+                <div class="form-group">
+                    <label>Montant</label>
+                    <input type="number" name="amount" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label>De</label>
+                    <select name="fromCurrency" required>
+                        <option value="cdf">Franc Congolais (CDF)</option>
+                        <option value="usd">Dollar US (USD)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>À</label>
+                    <select name="toCurrency" required>
+                        <option value="usd">Dollar US (USD)</option>
+                        <option value="cdf">Franc Congolais (CDF)</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-btn">Annuler</button>
+                    <button type="submit" class="submit-btn">Convertir</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="budget.js"></script>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

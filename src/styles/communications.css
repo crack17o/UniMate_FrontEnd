@@ -1,0 +1,317 @@
+/* Container principal */
+.communications-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* En-tête avec filtres */
+.communications-header {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.communications-header h1 {
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.filters {
+  display: flex;
+  gap: 1rem;
+}
+
+.filters select {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--background-card);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filters select:hover {
+  border-color: var(--primary-color);
+}
+
+/* Table des communications */
+.communications-table-container {
+  background: var(--background-card);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.communications-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.communications-table th,
+.communications-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.communications-table th {
+  font-weight: 600;
+  color: var(--text-primary);
+  background: var(--background-light);
+}
+
+.communications-table tr {
+  transition: background-color 0.2s ease;
+}
+
+.communications-table tr:hover {
+  background: var(--background-light);
+}
+
+/* Ajustement de la colonne d'actions */
+.communications-table th:last-child,
+.communications-table td:last-child {
+  width: 80px;
+  text-align: center;
+}
+
+/* Badges pour les types de communications */
+.communication-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.communication-badge i {
+  font-size: 0.9rem;
+}
+
+.communication-badge.urgent {
+  background: #FF6B6B20;
+  color: #FF6B6B;
+}
+
+.communication-badge.info {
+  background: #4CAF5020;
+  color: #4CAF50;
+}
+
+.communication-badge.event {
+  background: #2196F320;
+  color: #2196F3;
+}
+
+/* Bouton de détails */
+.view-details-btn {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  padding: 0.35rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.view-details-btn:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.view-details-btn i {
+  font-size: 0.9rem;
+}
+
+/* Modal */
+.communication-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+}
+
+.communication-modal.active {
+  display: block;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--background-card);
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+
+.close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.close-modal:hover {
+  background: rgba(0, 0, 0, 0.2);
+  transform: rotate(90deg);
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+/* Détails dans la modal */
+.communication-details {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.detail-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.detail-item i {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  margin-top: 0.2rem;
+}
+
+.detail-item .label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.25rem;
+}
+
+.detail-item .value {
+  color: var(--text-primary);
+}
+
+.detail-item.description .value {
+  line-height: 1.6;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.pagination-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: var(--background-light);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pagination-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination-btn:not(:disabled):hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+.pagination-dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.pagination-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: var(--border-color);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.2s ease;
+}
+
+.pagination-dot.active {
+  background: var(--primary-color);
+  transform: scale(1.2);
+}
+
+/* Support du thème sombre */
+[data-theme='dark'] .communications-table tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme='dark'] .close-modal {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .close-modal:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.no-results {
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
