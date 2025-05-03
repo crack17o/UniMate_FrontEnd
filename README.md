@@ -1,12 +1,49 @@
-# React + Vite
+# UniMate
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**UniMate** est une application web moderne destinée à améliorer la communication, la gestion des cours et l’organisation académique entre étudiants, professeurs et administration facultaire.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Fonctionnalités principales
 
-## Expanding the ESLint configuration
+- **Confirmation de présence** d’un professeur à une séance de cours
+- **Notifications et alertes** automatiques (interrogations, révisions, rappels)
+- **Calendrier global** des séances et événements académiques
+- **Communications** officielles envoyées par les professeurs ou autorités
+- **Bibliothèque intégrée** avec téléchargement de livres
+- **Visualisation des horaires** et des dates importantes
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Technologies utilisées
+
+### Frontend
+- **React.js** : Pour une interface utilisateur rapide, interactive et modulaire.
+
+### Backend
+- **Express.js (Node.js)** : Pour créer une API RESTful légère et rapide.
+
+### Services Cloud
+- **Firebase** :
+  - **Firebase Cloud Messaging (FCM)** : Pour envoyer des notifications en temps réel aux utilisateurs.
+  - **Firebase Storage** : Pour le stockage et le téléchargement des documents (ex. : livres PDF).
+  - **Firebase Authentication** *(optionnel)* : Pour gérer l’inscription et la connexion des utilisateurs si tu le souhaites.
+
+---
+
+## Architecture de l'application
+React.js (Frontend)
+|
+Express.js (API REST)
+|
+Firebase (Notifications & Stockage de fichiers)
+
+
+---
+
+## Installation & lancement
+
+### Prérequis
+- Node.js & npm
+- Compte Firebase (avec un projet configuré)
+- Clé Firebase Admin SDK
