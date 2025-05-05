@@ -118,7 +118,6 @@ const AppContent = () => {
                   <ResetPass />
                 </>    
               } />
-              <Route path="*" element={<Navigate to="/dashboard" replace />} />
             </Routes>
           </div>
         </div>
